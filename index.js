@@ -61,12 +61,7 @@ function validateCreditCard(creditCardNum) {
         } 
     }
 
-    return {
-        valid: true, 
-        number: creditCardNum,
-    }
-
-/*    LSum = ((d2 * 2) % 10 + ((d2 * 2) % 100 - (d2 * 2) % 10)/10 +
+    const checkSum = ((d2 * 2) % 10 + ((d2 * 2) % 100 - (d2 * 2) % 10)/10 +
             (d4 * 2) % 10 + ((d4 * 2) % 100 - (d4 * 2) % 10)/10 +
             (d6 * 2) % 10 + ((d6 * 2) % 100 - (d6 * 2) % 10)/10 +
             (d8 * 2) % 10 + ((d8 * 2) % 100 - (d8 * 2) % 10)/10 +
@@ -74,7 +69,20 @@ function validateCreditCard(creditCardNum) {
             (d12 * 2) % 10 + ((d12 * 2) % 100 - (d12 * 2) % 10)/10 +
             (d14 * 2) % 10 + ((d14 * 2) % 100 - (d14 * 2) % 10)/10 +
             (d16 * 2) % 10 + ((d16 * 2) % 100 - (d16 * 2) % 10)/10 +
-            d1 + d3 + d5 + d7 + d9 + d11 + d13 + d15)*/
+            d1 + d3 + d5 + d7 + d9 + d11 + d13 + d15);
+
+    if (checkSum % 10 === 0) {
+        return {
+            valid: true, 
+            number: creditCardNum,
+        }
+    } else {
+        return {
+            valid: false,
+            number: creditCardNum,
+            error: "_Luhn’s_Algorithm_"
+        }
+    }
 };
 
 /**** tests *****/
